@@ -1,0 +1,13 @@
+*label   op     address  times
+X        EQU    1000
+         ORIG   3000
+MAXIMUM  STJ    EXIT     1
+INIT     ENT3   0,1      1
+         JMP    CHANGEM  1
+LOOP     CMPA   X,3      n-1
+         JGE    *+3      n-1
+CHANGEM  ENT2   0,3      A+1
+         LDA    X,3      A+1
+         DEC3   1        n
+         J3P    LOOP     n
+EXIT     JMP    *        1
